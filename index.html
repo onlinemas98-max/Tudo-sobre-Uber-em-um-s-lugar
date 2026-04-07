@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uber Guia Brasil - O Guia Completo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .category-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        html, body {
+            /* Garante que o scroll esteja habilitado por padrão */
+            overflow-x: hidden;
+            overflow-y: auto;
+            height: auto;
+            scroll-behavior: smooth;
+        }
+        .hero-title {
+            line-height: 1.1;
+        }
+        /* Estilos para o Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 1rem;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+    <!-- Header / Navigation (Cinza Claro) -->
+    <header class="bg-gray-100 text-gray-800 sticky top-0 z-50 shadow-sm border-b border-gray-200">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold tracking-tighter italic text-black">UBER<span class="text-blue-600 text-sm not-italic ml-1 font-semibold">Guia Brasil</span></div>
+            <nav class="hidden md:flex space-x-6 text-sm font-bold uppercase tracking-widest">
+                <a href="#guia" class="hover:text-blue-600 transition">Guia</a>
+                <a href="#app" class="hover:text-blue-600 transition">App</a>
+                <a href="#cadastro" class="hover:text-blue-600 transition">Cadastro</a>
+                <a href="#desconto" class="text-red-600 hover:text-red-700 font-extrabold transition">Cupons</a>
+            </nav>
+            <button class="md:hidden text-2xl text-black"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- Hero Section (Formatada com Título de Alto Impacto) -->
+    <section class="bg-gray-200 text-gray-900 py-28 px-4 text-center border-b border-gray-300">
+        <div class="container mx-auto max-w-4xl">
+            <h1 class="hero-title text-5xl md:text-7xl font-black mb-8 tracking-tighter text-black uppercase">
+                Tudo sobre <span class="text-blue-600 italic">Uber</span> <br class="hidden md:block"> 
+                <span class="text-gray-500 font-light">em um só lugar</span>
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-600 max-w-2xl mx-auto mb-12 font-medium leading-relaxed">
+                Dicas para passageiros, guias para motoristas e cupons atualizados para você economizar em cada viagem.
+            </p>
+            <div class="flex flex-wrap justify-center gap-5">
+                <a href="#guia" class="bg-black text-white px-12 py-4 rounded-full font-bold hover:bg-blue-600 transition-all duration-300 uppercase text-sm shadow-xl tracking-widest">
+                    Começar Agora
+                </a>
+                <a href="#desconto" class="bg-white text-black border-2 border-black px-12 py-4 rounded-full font-bold hover:bg-black hover:text-white transition-all duration-300 uppercase text-sm shadow-lg tracking-widest">
+                    Ver Descontos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Directory Map / Categories -->
+    <main class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold mb-12 text-center text-gray-800">Navegue pelas Categorias</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- GUIA -->
+            <div id="guia" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 category-card">
+                <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fas fa-book text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4 uppercase tracking-tight text-blue-700">Guia Completo</h3>
+                <ul class="space-y-2 text-gray-600">
+                    <li><a href="#" class="hover:text-blue-500 flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Como funciona e como usar</a></li>
+                    <li><a href="#" class="hover:text-blue-500 flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Guia para iniciantes</a></li>
+                    <li><a href="#" class="hover:text-blue-500 flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Como pedir pelo celular</a></li>
+                    <li><a href="#" class="hover:text-blue-500 font-semibold text-blue-600">Usando pela primeira vez?</a></li>
+                </ul>
+            </div>
+
+            <!-- CADASTRO -->
+            <div id="cadastro" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 category-card">
+                <div class="w-12 h-12 bg-green-100 text-green-600 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fas fa-user-plus text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4 uppercase tracking-tight text-green-700">Trabalhe Conosco</h3>
+                <ul class="space-y-2 text-gray-600">
+                    <li><a href="#" class="hover:text-green-500 flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Cadastro Passo a Passo</a></li>
+                    <li><a href="#" class="hover:text-green-500 flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Entregador Uber Eats</a></li>
+                    <li><a href="#" class="hover:text-green-500 flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Quanto ganha um Uber?</a></li>
+                    <li><a href="#" class="hover:text-green-500 font-semibold text-green-600">Quero ser motorista</a></li>
+                </ul>
+            </div>
+
+            <!-- APP -->
+            <div id="app" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 category-card">
+                <div class="w-12 h-12 bg-gray-100 text-gray-800 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fas fa-mobile-alt text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4 uppercase tracking-tight text-gray-800">Aplicativo</h3>
+                <ul class="space-y-2 text-gray-600">
+                    <li><a href="#" class="hover:text-black flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2"></i> App passageiro</a></li>
+                    <li><a href="#" class="hover:text-black flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2"></i> App Driver (Motorista)</a></li>
+                    <li><a href="#" class="hover:text-black flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Funcionamento Técnico</a></li>
+                </ul>
+            </div>
+
+            <!-- PREÇO -->
+            <div id="preco" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 category-card">
+                <div class="w-12 h-12 bg-yellow-100 text-yellow-600 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fas fa-coins text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4 uppercase tracking-tight text-yellow-700">Preços e Taxas</h3>
+                <ul class="space-y-2 text-gray-600">
+                    <li><a href="#" class="hover:text-yellow-600 flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Como calcular a viagem</a></li>
+                    <li><a href="#" class="hover:text-yellow-600 flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Valor por KM</a></li>
+                    <li><a href="#" class="hover:text-yellow-600 font-semibold text-yellow-600">Pagar mais barato</a></li>
+                </ul>
+            </div>
+
+            <!-- DESCONTO -->
+            <div id="desconto" class="bg-white p-6 rounded-2xl shadow-sm border border-red-100 category-card">
+                <div class="w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fas fa-ticket-alt text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4 uppercase tracking-tight text-red-700">Cupons e Promoções</h3>
+                <ul class="space-y-2 text-gray-700">
+                    <li><a href="#" class="hover:text-red-500 font-bold flex items-center italic underline">CUPOM ATUALIZADO HOJE</a></li>
+                    <li><a href="#" class="hover:text-red-500 flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Como conseguir desconto</a></li>
+                    <li><a href="#" class="hover:text-red-500 flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Como usar Voucher</a></li>
+                </ul>
+            </div>
+
+            <!-- SERVIÇOS -->
+            <div id="servicos" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 category-card">
+                <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fas fa-concierge-bell text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4 uppercase tracking-tight text-purple-700">Categorias Uber</h3>
+                <ul class="space-y-2 text-gray-600">
+                    <li><a href="#" class="hover:text-purple-500 flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Uber Moto</a></li>
+                    <li><a href="#" class="hover:text-purple-500 flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Uber X</a></li>
+                    <li><a href="#" class="hover:text-purple-500 flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Uber Black vale a pena?</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Claro -->
+    <footer class="bg-white text-gray-800 py-16 border-t border-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12 text-sm">
+                <div>
+                    <h4 class="text-black font-extrabold mb-6 uppercase tracking-wider text-xs">Institucional</h4>
+                    <ul class="space-y-3">
+                        <li><button onclick="openModal('sobre')" class="text-gray-500 hover:text-black transition">Sobre Nós</button></li>
+                        <li><button onclick="openModal('contato')" class="text-gray-500 hover:text-black transition">Contato</button></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-black font-extrabold mb-6 uppercase tracking-wider text-xs">Jurídico</h4>
+                    <ul class="space-y-3">
+                        <li><button onclick="openModal('privacidade')" class="text-gray-500 hover:text-black transition">Política de Privacidade</button></li>
+                        <li><button onclick="openModal('termos')" class="text-gray-500 hover:text-black transition">Termos de Uso</button></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-black font-extrabold mb-6 uppercase tracking-wider text-xs">Mapa do Site</h4>
+                    <ul class="space-y-3 text-gray-500">
+                        <li><a href="#guia" class="hover:text-black transition">Guia Geral</a></li>
+                        <li><a href="#cadastro" class="hover:text-black transition">Cadastro Motorista</a></li>
+                        <li><a href="#app" class="hover:text-black transition">Baixar Aplicativo</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-black font-extrabold mb-6 uppercase tracking-wider text-xs">Aviso Legal</h4>
+                    <p class="text-xs leading-relaxed text-gray-400">
+                        Este site é um portal informativo e não possui qualquer afiliação oficial com a Uber Technologies Inc. As marcas registradas mencionadas pertencem aos seus respectivos proprietários.
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-400 uppercase tracking-widest">
+                <div class="mb-4 md:mb-0">
+                    &copy; 2024 Uber Guia Brasil.
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-black"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-black"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-black"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modais Informativos -->
+    <div id="modal-container" class="modal" onclick="closeModal()">
+        <div class="modal-content shadow-2xl" onclick="event.stopPropagation()">
+            <button class="absolute top-4 right-4 text-gray-400 hover:text-black text-2xl" onclick="closeModal()">&times;</button>
+            <div id="modal-body">
+                <!-- Conteúdo dinâmico aqui -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão Flutuante -->
+    <a href="#desconto" class="fixed bottom-6 right-6 bg-black text-white font-bold p-4 rounded-full shadow-2xl hover:bg-blue-600 transition hidden md:flex items-center justify-center">
+        <i class="fas fa-ticket-alt mr-2"></i> Cupons
+    </a>
+
+    <script>
+        const content = {
+            sobre: `
+                <h2 class="text-2xl font-bold mb-4">Sobre Nós</h2>
+                <p class="text-gray-600 mb-4">O Uber Guia Brasil é um portal independente dedicado a simplificar a vida de motoristas e passageiros de aplicativos no Brasil.</p>
+                <p class="text-gray-600">Nossa missão é fornecer informações claras, guias passo a passo e as melhores ofertas para que você possa se locomover com segurança e economia.</p>
+            `,
+            contato: `
+                <h2 class="text-2xl font-bold mb-4">Contato</h2>
+                <p class="text-gray-600 mb-4">Tem alguma dúvida ou sugestão? Entre em contato conosco através do e-mail abaixo:</p>
+                <p class="font-bold text-blue-600">suporte@uberguia.com.br</p>
+                <div class="mt-6 p-4 bg-gray-100 rounded-lg">
+                    <p class="text-xs text-gray-500">Respondemos em até 48 horas úteis.</p>
+                </div>
+            `,
+            privacidade: `
+                <h2 class="text-2xl font-bold mb-4">Política de Privacidade</h2>
+                <p class="text-sm text-gray-600 mb-4">Valorizamos a sua privacidade. Este site não coleta dados pessoais sensíveis sem o seu consentimento.</p>
+                <p class="text-sm text-gray-600 mb-4">Utilizamos cookies apenas para melhorar a sua experiência de navegação e analisar o tráfego do site de forma anônima.</p>
+                <p class="text-sm text-gray-600">Ao navegar em nosso portal, você concorda com nossas práticas de transparência.</p>
+            `,
+            termos: `
+                <h2 class="text-2xl font-bold mb-4">Termos de Uso</h2>
+                <p class="text-sm text-gray-600 mb-4">As informações contidas neste portal são meramente informativas.</p>
+                <p class="text-sm text-gray-600 mb-4">O Uber Guia Brasil não se responsabiliza por mudanças nas tarifas da Uber, cancelamento de cupons ou alterações nos termos de serviço da plataforma oficial.</p>
+                <p class="text-sm text-gray-600">Sempre verifique as informações diretamente no aplicativo oficial da Uber.</p>
+            `
+        };
+
+        function openModal(type) {
+            document.getElementById('modal-body').innerHTML = content[type];
+            document.getElementById('modal-container').style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Remove scroll temporariamente
+        }
+
+        function closeModal() {
+            document.getElementById('modal-container').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restaura o scroll
+        }
+
+        // Garante que o scroll seja restaurado se a página for recarregada ou iniciada
+        window.onload = function() {
+            document.body.style.overflow = 'auto';
+        };
+    </script>
+
+</body>
+</html>
